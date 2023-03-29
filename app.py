@@ -2,17 +2,17 @@
 # A very simple Flask Hello World app for you to get started with...
 
 from flask import Flask, jsonify, request
-import firebase_admin
+'''import firebase_admin
 from firebase_admin import credentials, firestore
-'''import spacy
+import spacy
 from tqdm import tqdm
 import math
 import numpy as np
-from multiprocessing import Pool, cpu_count'''
+from multiprocessing import Pool, cpu_count
 
 cred = credentials.Certificate("one-for-all-cbabf-37c52768910f.json")
 firebase_admin.initialize_app(cred)
-db = firestore.client()
+db = firestore.client()'''
 
 '''class BM25:
     def __init__(self, corpus, tokenizer=None):
