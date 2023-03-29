@@ -154,7 +154,7 @@ def hello_world():
     query = "art"
     tokenized_query = query.lower().split(" ")
 
-    results = bm25.get_top_n(tokenized_query, [lis[i]['description'] for i in range(len(lis))], [lis[i]['name'] for i in range(len(lis))],n=3)''''
+    results = bm25.get_top_n(tokenized_query, [lis[i]['description'] for i in range(len(lis))], [lis[i]['name'] for i in range(len(lis))],n=3)'''
 
     return 'popcorn'
 
