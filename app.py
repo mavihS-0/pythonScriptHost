@@ -10,7 +10,7 @@ import math
 import numpy as np
 from multiprocessing import Pool, cpu_count
 
-cred = credentials.Certificate("/home/communiti/mysite/flutterone-e0628-be8fd7d09634.json")
+cred = credentials.Certificate("one-for-all-cbabf-37c52768910f.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
