@@ -136,7 +136,7 @@ class BM25Okapi(BM25):
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/api')
 def hello_world():
 
     collection = db.collection('events')
