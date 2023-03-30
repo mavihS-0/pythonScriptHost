@@ -17,6 +17,11 @@ cred = credentials.Certificate("one-for-all-cbabf-37c52768910f.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
+import math
+import numpy as np
+from multiprocessing import Pool, cpu_count
+
+
 class BM25:
     def __init__(self, corpus, tokenizer=None):
         self.corpus_size = 0
@@ -121,7 +126,8 @@ class BM25Okapi(BM25):
         doc_len = np.array(self.doc_len)
         for q in query:
             q_freq = np.array([(doc.get(q) or 0) for doc in self.doc_freqs])
-            score += (self.idf.get(q) or 0) * (q_freq * (self.k1 + 1) / (q_freq + self.k1 * (1 - self.b + self.b * doc_len / self.avgdl)))
+            score += (self.idf.get(q) or 0) * (q_freq * (self.k1 + 1) /
+                                               (q_freq + self.k1 * (1 - self.b + self.b * doc_len / self.avgdl)))
         return score
 
     def get_batch_scores(self, query, doc_ids):
@@ -133,7 +139,8 @@ class BM25Okapi(BM25):
         doc_len = np.array(self.doc_len)[doc_ids]
         for q in query:
             q_freq = np.array([(self.doc_freqs[di].get(q) or 0) for di in doc_ids])
-            score += (self.idf.get(q) or 0) * (q_freq * (self.k1 + 1) / (q_freq + self.k1 * (1 - self.b + self.b * doc_len / self.avgdl)))
+            score += (self.idf.get(q) or 0) * (q_freq * (self.k1 + 1) /
+                                               (q_freq + self.k1 * (1 - self.b + self.b * doc_len / self.avgdl)))
         return score.tolist()
 
 app = Flask(__name__)
@@ -142,19 +149,15 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
 
-    #collection = db.collection('events')
-    #lis = collection.get()
-    ##bhai trial hai
     collection = db.collection('events')
     lis = []
     lis1 = collection.get()
-    for doc in lis:
+    for doc in lis1:
         lis.append(doc.to_dict())
         
         
     nlp = spacy.load("en_core_web_sm")
-    tok_text=[] # for our tokenised corpus
-    #Tokenising using SpaCy:
+    tok_text=[] 
 
     for doc in tqdm(nlp.pipe([lis[i]['description'].lower() for i in range(len(lis))], disable=["tagger", "parser","ner"])):
         tok = [t.text for t in doc if t.is_alpha]
@@ -171,4 +174,3 @@ def hello_world():
 
 if __name__=="__main__":
     app.run()
-
