@@ -3,3 +3,4 @@ Flask==2.2.3
 numpy==1.16.5
 spacy==3.5.1
 tqdm==4.65.0
+gunicorn==20.1.0
