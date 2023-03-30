@@ -142,9 +142,16 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
 
+    #collection = db.collection('events')
+    #lis = collection.get()
+    ##bhai trial hai
     collection = db.collection('events')
-    lis = collection.get().to_dict()
-
+    lis = []
+    lis1 = collection.get()
+    for doc in lis:
+        lis.append(doc.to_dict())
+        
+        
     nlp = spacy.load("en_core_web_sm")
     tok_text=[] # for our tokenised corpus
     #Tokenising using SpaCy:
