@@ -146,7 +146,7 @@ class BM25Okapi(BM25):
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods = ['GET'])
 def hello_world():
 
     collection = db.collection('events')
@@ -164,8 +164,9 @@ def hello_world():
         tok_text.append(tok)
 
     bm25 = BM25Okapi(tok_text)
-    query = "art"
-    tokenized_query = query.lower().split(" ")
+    #query = "art"
+    Query = str(request.args['Query'])
+    tokenized_query = Query.lower().split(" ")
 
     results = bm25.get_top_n(tokenized_query, [lis[i]['description'] for i in range(len(lis))], [lis[i]['name'] for i in range(len(lis))],n=3)
 
