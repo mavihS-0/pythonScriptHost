@@ -88,7 +88,7 @@ def generate_summary(text, top_n=5):
 app = Flask(__name__)
 
 
-@app.route('/', methods = ['GET'])
+@app.route('/api', methods = ['GET'])
 def summ():
     Query = str(request.args['Query'])
     '''text = """‘Love the art in yourself’, with these golden words, Alankar Theatre, Chandigarh aims to bring social awareness to the masses. With drama as its medium, Alankar Theatre has been dynamically active both on stage as well as on the streets.
