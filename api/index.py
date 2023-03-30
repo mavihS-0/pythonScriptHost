@@ -9,8 +9,9 @@ from tqdm import tqdm
 import math
 import numpy as np
 from multiprocessing import Pool, cpu_count
-from spacy import en_core_web_sm
 
+from spacy.cli.download import download
+download('en_core_web_sm')
 
 cred = credentials.Certificate("one-for-all-cbabf-37c52768910f.json")
 firebase_admin.initialize_app(cred)
