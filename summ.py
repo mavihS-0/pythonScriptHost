@@ -65,7 +65,7 @@ def generate_summary(text, top_n=5):
     summarize_text = []
 
     # Step 1 - Read text anc split it
-    sentences =  read_article()
+    sentences =  read_article(text)
 
     # Step 2 - Generate Similary Martix across sentences
     sentence_similarity_martix = build_similarity_matrix(sentences, stop_words)
