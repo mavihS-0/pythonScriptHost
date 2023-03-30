@@ -168,7 +168,7 @@ def hello_world():
     Query = str(request.args['Query'])
     tokenized_query = Query.lower().split(" ")
 
-    results = bm25.get_top_n(tokenized_query, [lis[i]['description'] for i in range(len(lis))], [lis[i]['name'] for i in range(len(lis))],n=3)
+    results = bm25.get_top_n(tokenized_query, [lis[i]['description'] for i in range(len(lis))], [lis[i]['name'] for i in range(len(lis))],n=5)
 
     return results
 
