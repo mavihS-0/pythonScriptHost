@@ -1,5 +1,4 @@
-import flask
-from flask import request
+from flask import Flask, jsonify, request
 import nltk
 nltk.download('stopwords')
 nltk.download('punkt')
