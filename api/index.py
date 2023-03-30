@@ -143,7 +143,7 @@ app = Flask(__name__)
 def hello_world():
 
     collection = db.collection('events')
-    lis = collection.get()
+    lis = collection.get().to_dict()
 
     nlp = spacy.load("en_core_web_sm")
     tok_text=[] # for our tokenised corpus
