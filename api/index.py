@@ -2,7 +2,7 @@
 # A very simple Flask Hello World app for you to get started with...
 
 from flask import Flask, jsonify, request
-'''import firebase_admin
+import firebase_admin
 from firebase_admin import credentials, firestore
 import spacy
 from tqdm import tqdm
@@ -12,9 +12,9 @@ from multiprocessing import Pool, cpu_count
 
 cred = credentials.Certificate("one-for-all-cbabf-37c52768910f.json")
 firebase_admin.initialize_app(cred)
-db = firestore.client()'''
+db = firestore.client()
 
-'''class BM25:
+class BM25:
     def __init__(self, corpus, tokenizer=None):
         self.corpus_size = 0
         self.avgdl = 0
@@ -131,7 +131,7 @@ class BM25Okapi(BM25):
         for q in query:
             q_freq = np.array([(self.doc_freqs[di].get(q) or 0) for di in doc_ids])
             score += (self.idf.get(q) or 0) * (q_freq * (self.k1 + 1) / (q_freq + self.k1 * (1 - self.b + self.b * doc_len / self.avgdl)))
-        return score.tolist()'''
+        return score.tolist()
 
 app = Flask(__name__)
 
@@ -139,7 +139,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
 
-    '''collection = db.collection('events')
+    collection = db.collection('events')
     lis = collection.get()
 
     nlp = spacy.load("en_core_web_sm")
@@ -154,9 +154,9 @@ def hello_world():
     query = "art"
     tokenized_query = query.lower().split(" ")
 
-    results = bm25.get_top_n(tokenized_query, [lis[i]['description'] for i in range(len(lis))], [lis[i]['name'] for i in range(len(lis))],n=3)'''
+    results = bm25.get_top_n(tokenized_query, [lis[i]['description'] for i in range(len(lis))], [lis[i]['name'] for i in range(len(lis))],n=3)
 
-    return 'popcorn'
+    return results
 
 
 if __name__=="__main__":
