@@ -61,7 +61,7 @@ def build_similarity_matrix(sentences, stop_words):
     return similarity_matrix
 
 
-def generate_summary(top_n=5, text):
+def generate_summary(text, top_n=5):
     stop_words = stopwords.words('english')
     summarize_text = []
 
@@ -95,7 +95,7 @@ def summ():
     '''text = """‘Love the art in yourself’, with these golden words, Alankar Theatre, Chandigarh aims to bring social awareness to the masses. With drama as its medium, Alankar Theatre has been dynamically active both on stage as well as on the streets.
 It is an organization that furnishes a platform for individuals who are passionate to work toward social reform. Using theatre as a tool, the fundamental aim of the Alankar Theatre is to fan the flames of social rectification. The group comprises of budding actors and keen directors who are passionate about their work. The associated youth get the scope to enhance their knowledge and hone the abilities that further give them the pedestal to cater to the civil needs of the numerous communities present. As a consequence, a healthy relationship among people worldwide is established through the bodywork of educational theatre.
 Founded by Mr. Chakresh Kumar in the year 2005, Alankar Theatre acquired registration in Chandigarh in 2012. Alankar theatre has fabricated several plays. These include ‘MautKyuNahiAati Raat Bhar’, ‘Macbeth’, ‘One or The Part of Two’, ‘Thought’, ‘Ji AayaSahab’, ‘AndhaYug’, ‘Ram SajeevankiPrem Katha’, ‘Parsai Ki Duniya’, ‘Natak Ka Naam Kyu Rakhein’, ‘Mandir’, ‘EkLadki Paanch Deewane’, ‘PhateGulabJamun’, ‘The First Teacher’ and award-winning play ‘Poster’, ‘Bolti Deewaren’, A Mid-Summer Night’s Dream, ‘Challa Ho Gaya’, ‘Inna Ki Awaj, Thiru Nangai, Bharatdurdasha, Meera Bai, Azaadi, Romeo and Juliet…etc. Alankar Theatre has staged these plays in diverse places of India, those being- Patna, Lucknow, Patiala, Chandigarh, Amritsar, Bhatinda, Hissar, Delhi, Ambala, Uttrakhand, Kerala, Jabalpur, Allahabad, Indore, etc. Alankar Theatre is also involved in cinema by constantly producing various short films and providing its actors to grow in the field of the camera as well."""'''
-    return generate_summary(4, Query)
+    return generate_summary(Query, 4)
 
 
 if __name__=="__main__":
