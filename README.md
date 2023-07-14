@@ -7,5 +7,5 @@
 
 ## Search
 - Implemented through rankBM25 algorithm
-- BM25 is a retrieval functions that evaluates a group of documents by analyzing the query terms present in each document, irrespective of their proximity 
+- BM25 is a retrieval function that evaluates a group of documents by analyzing the query terms present in each document, irrespective of their proximity 
 - It belongs to a family of scoring functions that have different parameters and components
